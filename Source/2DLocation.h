@@ -8,6 +8,8 @@
 #ifndef SOURCE_2DLOCATION_H_
 #define SOURCE_2DLOCATION_H_
 
+#include <iostream>
+
 #include "AbstractProperties.h"
 
 #include "tools.h"
@@ -21,6 +23,9 @@ public:
 	~TwoDLocation(){
 
 	};
+	double getX() {
+		return _x;
+	}
 
 	virtual void print() const override {
 		std::cout << "_x: " << _x << "  _y: " << _y << std::endl;

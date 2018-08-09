@@ -4,8 +4,10 @@
 #include "PropertySetter.h"
 
 Population::Population(const int nMembers, const int propertyType,
-		std::shared_ptr<Cost::AbstractCost> cost): _nMembers(nMembers), _globalBestCost(0.0) {
+		std::shared_ptr<Cost::AbstractCost> cost): _nMembers(nMembers),
+		_globalBestCost(0.0) {
 	Particle::_propertyType = PropertyType::TWOD;
+	Particle::_costType = Cost::Type::SquaredFunction;
 	_particles = new Particle[nMembers];
 }
 

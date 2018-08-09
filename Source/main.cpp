@@ -38,8 +38,8 @@ int main() {
 	}
 
 	// PSO parameters
-	int nMaxIterations = 100;
-	int swarmSize = 50;
+	int nMaxIterations = 500;
+	int swarmSize = 400;
 
 	double inertia = 1.;
 	double cognitiveAcc = 2.0;

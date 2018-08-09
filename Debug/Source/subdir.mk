@@ -5,6 +5,7 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../Source/AbstractProperties.cpp \
+../Source/CostCalculator.cpp \
 ../Source/Particle.cpp \
 ../Source/Population.cpp \
 ../Source/PropertySetter.cpp \
@@ -13,6 +14,7 @@ CPP_SRCS += \
 
 OBJS += \
 ./Source/AbstractProperties.o \
+./Source/CostCalculator.o \
 ./Source/Particle.o \
 ./Source/Population.o \
 ./Source/PropertySetter.o \
@@ -21,6 +23,7 @@ OBJS += \
 
 CPP_DEPS += \
 ./Source/AbstractProperties.d \
+./Source/CostCalculator.d \
 ./Source/Particle.d \
 ./Source/Population.d \
 ./Source/PropertySetter.d \

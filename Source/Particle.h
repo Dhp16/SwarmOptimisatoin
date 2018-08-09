@@ -12,11 +12,13 @@
 #include <memory>
 
 #include "AbstractProperties.h"
+#include "AbstractCost.h"
 
 class Particle {
 
 public:
 	static PropertyType _propertyType;
+	static Cost::Type _costType;
 
 	Particle();
 	~Particle() = default;
@@ -30,12 +32,13 @@ private:
 
 private:
 	int _nVar = 0;
-	std::shared_ptr<AbstractProperties> _property = nullptr;
 	double _velocity = 0.0;
-	double _cost = 0.0;
 
+	std::shared_ptr<AbstractProperties> _property = nullptr;
 	double _personalBestValue = 0.0;
-	std::weak_ptr<AbstractProperties> _personalBestProperty = std::weak_ptr<AbstractProperties>();
+	double _cost = 0.0;
+	std::weak_ptr<AbstractProperties> _personalBestProperty =
+			std::weak_ptr<AbstractProperties>();
 };
 
 

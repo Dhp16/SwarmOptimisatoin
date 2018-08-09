@@ -9,8 +9,10 @@
 #define SOURCE_SQUAREDFUNCTION_H_
 
 #include <cmath>
+#include <memory>
 
 #include "AbstractCost.h"
+#include "2DLocation.h"
 
 namespace Cost {
 
@@ -21,8 +23,8 @@ namespace Cost {
 		~SquaredFunction() = default;
 
 	public:
-		virtual double get(const double x) const override {
-			return pow(x,2);
+		static double get(const std::shared_ptr<TwoDLocation>& property) {
+			return pow(property->getX(), 2);
 		}
 	};
 

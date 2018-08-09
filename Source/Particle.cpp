@@ -7,17 +7,21 @@
 
 #include "Particle.h"
 
+#include <iostream>
+
 #include "tools.h"
 
 #include "PropertySetter.h"
+#include "CostCalculator.h"
 
 PropertyType Particle::_propertyType = PropertyType::UNDEFINED;
+Cost::Type Particle::_costType = Cost::Type::SquaredFunction;
 
 // public:
 Particle::Particle(){
 	_property = generateProperty();
 	_velocity = 0.0;
-	_cost = Tools::fRand(5.0, 10000.0);
+	_cost = Cost::Calculator::calculate(_property, _costType);
 
 	_personalBestValue = _cost;
 	_personalBestProperty = _property;
