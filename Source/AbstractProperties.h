@@ -9,13 +9,14 @@
 #define SOURCE_ABSTRACTPROPERTIES_H_
 
 
-enum class PropertyType {UNDEFINED, TWOD};
+enum class PropertyType {UNDEFINED, ONED, TWOD};
 
 class AbstractProperties {
 
 public:
 		~AbstractProperties();
 		virtual void print() const = 0;
+		virtual double get() const = 0;
 private:
 
 };

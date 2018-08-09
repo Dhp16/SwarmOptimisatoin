@@ -13,6 +13,7 @@
 
 #include "AbstractCost.h"
 #include "2DLocation.h"
+#include "1DLocation.h"
 
 namespace Cost {
 
@@ -23,6 +24,9 @@ namespace Cost {
 		~SquaredFunction() = default;
 
 	public:
+		static double get(const std::shared_ptr<OneDLocation>& property) {
+			return pow(property->getX(), 2);
+		}
 		static double get(const std::shared_ptr<TwoDLocation>& property) {
 			return pow(property->getX(), 2);
 		}

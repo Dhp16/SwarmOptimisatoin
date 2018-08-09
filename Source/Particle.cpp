@@ -37,6 +37,11 @@ Particle::getCost() const {
 	return _cost;
 }
 
+double
+Particle::getVelocity() const {
+	return _velocity;
+}
+
 std::shared_ptr<AbstractProperties> Particle::generateProperty() {
 	return PropertySetter::set(_propertyType);
 }

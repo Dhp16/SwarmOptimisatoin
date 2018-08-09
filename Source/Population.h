@@ -15,6 +15,8 @@
 
 #include "AbstractCost.h"
 #include "AbstractProperties.h"
+#include "OptimisationParameters.h"
+
 
 class Population {
 
@@ -24,24 +26,27 @@ public:
 		return _particles[index];
 	}
 
-	Population(const int nMembers, const int propertyType,
-			std::shared_ptr<Cost::AbstractCost> cost);
+	Population(const int nMembers, const int propertyType);
 	~Population();
-	void updateGlobalBest() const;
-	void setCost(const std::shared_ptr<Cost::AbstractCost> cost);
 	unsigned int size() const {
 		return _nMembers;
 	}
 	void print() const;
+	double getGlobalBest() const;
+	void update();
 
 private:
 	void generateParticleProperties(const int propertyType);
+	void updateGlobalBest() const;
+	double calculateVelocity(const int index,
+			const OptimisationParameters ops);
 
 private:
 	Particle* _particles = nullptr;
 	std::shared_ptr<Cost::AbstractCost> _cost = nullptr;
 	unsigned int _nMembers = 0;
 	mutable double _globalBestCost;
+	double _globalBest;
 	mutable std::weak_ptr<AbstractProperties> _globalBestProperty = std::weak_ptr<AbstractProperties>();
 };
 

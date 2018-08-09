@@ -6,6 +6,7 @@
 CPP_SRCS += \
 ../Source/AbstractProperties.cpp \
 ../Source/CostCalculator.cpp \
+../Source/Optimiser.cpp \
 ../Source/Particle.cpp \
 ../Source/Population.cpp \
 ../Source/PropertySetter.cpp \
@@ -15,6 +16,7 @@ CPP_SRCS += \
 OBJS += \
 ./Source/AbstractProperties.o \
 ./Source/CostCalculator.o \
+./Source/Optimiser.o \
 ./Source/Particle.o \
 ./Source/Population.o \
 ./Source/PropertySetter.o \
@@ -24,6 +26,7 @@ OBJS += \
 CPP_DEPS += \
 ./Source/AbstractProperties.d \
 ./Source/CostCalculator.d \
+./Source/Optimiser.d \
 ./Source/Particle.d \
 ./Source/Population.d \
 ./Source/PropertySetter.d \

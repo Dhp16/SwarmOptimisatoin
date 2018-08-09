@@ -25,6 +25,7 @@ public:
 
 	std::weak_ptr<AbstractProperties> getProperty() const;
 	double getCost() const;
+	double getVelocity() const;
 	void set(std::shared_ptr<AbstractProperties> property);
 
 private:
