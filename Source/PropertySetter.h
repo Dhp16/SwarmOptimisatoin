@@ -17,7 +17,8 @@ class PropertySetter {
 	~PropertySetter() = default;
 
 	static std::shared_ptr<AbstractProperties> set(const PropertyType propertyType);
-
+	static void copyTo(const std::shared_ptr<AbstractProperties>& original,
+			const std::shared_ptr<AbstractProperties>& copy);
 };
 
 

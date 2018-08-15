@@ -29,8 +29,16 @@ public:
 		return _x;
 	}
 
+	virtual void set(const double input) override {
+		_x = input;
+	}
+
 	virtual void print() const override {
 		std::cout << "_x: " << _x << std::endl;
+	}
+
+	virtual void update(const double velocity) override {
+		_x += velocity;
 	}
 
 private:

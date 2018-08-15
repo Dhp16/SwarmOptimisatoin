@@ -24,12 +24,16 @@ public:
 	~Particle() = default;
 
 	std::weak_ptr<AbstractProperties> getProperty() const;
+	std::shared_ptr<AbstractProperties> getHistorialBestProperty() const;
 	double getCost() const;
+	void updateLocation(const double velocity);
 	double getVelocity() const;
 	void set(std::shared_ptr<AbstractProperties> property);
 
 private:
 	std::shared_ptr<AbstractProperties> generateProperty();
+	void updatePersonalData();
+	void updatePersonalBest();
 
 private:
 	int _nVar = 0;
@@ -38,10 +42,27 @@ private:
 	std::shared_ptr<AbstractProperties> _property = nullptr;
 	double _personalBestValue = 0.0;
 	double _cost = 0.0;
-	std::weak_ptr<AbstractProperties> _personalBestProperty =
-			std::weak_ptr<AbstractProperties>();
+	std::shared_ptr<AbstractProperties> _personalBestProperty = nullptr;
 };
 
 
 
 #endif /* SOURCE_PARTICLE_H_ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

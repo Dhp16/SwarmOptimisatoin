@@ -8,6 +8,7 @@
 #ifndef SOURCE_ABSTRACTPROPERTIES_H_
 #define SOURCE_ABSTRACTPROPERTIES_H_
 
+#include <memory>
 
 enum class PropertyType {UNDEFINED, ONED, TWOD};
 
@@ -17,6 +18,8 @@ public:
 		~AbstractProperties();
 		virtual void print() const = 0;
 		virtual double get() const = 0;
+		virtual void update(const double velocity) = 0;
+		virtual void set(const double position) = 0;
 private:
 
 };

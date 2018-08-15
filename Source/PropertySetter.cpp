@@ -30,4 +30,13 @@ std::shared_ptr<AbstractProperties> PropertySetter::set(const PropertyType prope
 	return nullptr;
 }
 
+void PropertySetter::copyTo(const std::shared_ptr<AbstractProperties>& original,
+		const std::shared_ptr<AbstractProperties>& copy) {
+	copy->set(original->get());
+}
+
+
+
+
+
 

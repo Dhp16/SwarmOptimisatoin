@@ -29,6 +29,12 @@ public:
 	virtual double get() const override {
 		return _x;
 	}
+	virtual void set(const double input) {
+		_x = input;
+	}
+	virtual void update(const double velocity) override {
+		_x+=velocity;
+	}
 
 	virtual void print() const override {
 		std::cout << "_x: " << _x << "  _y: " << _y << std::endl;

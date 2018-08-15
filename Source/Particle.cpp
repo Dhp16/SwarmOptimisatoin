@@ -24,13 +24,19 @@ Particle::Particle(){
 	_cost = Cost::Calculator::calculate(_property, _costType);
 
 	_personalBestValue = _cost;
-	_personalBestProperty = _property;
+	_personalBestProperty = generateProperty();
+	PropertySetter::copyTo(_property, _personalBestProperty);
 }
 
 
 std::weak_ptr<AbstractProperties> Particle::getProperty() const {
 	return _property;
 }
+
+std::shared_ptr<AbstractProperties> Particle::getHistorialBestProperty() const {
+	return _personalBestProperty;
+}
+
 
 double
 Particle::getCost() const {
@@ -42,6 +48,33 @@ Particle::getVelocity() const {
 	return _velocity;
 }
 
+void
+Particle::updateLocation(const double velocity) {
+	_property->update(velocity);
+	updatePersonalData();
+}
+
 std::shared_ptr<AbstractProperties> Particle::generateProperty() {
 	return PropertySetter::set(_propertyType);
 }
+
+// private:
+
+void
+Particle::updatePersonalData() {
+	_cost = Cost::Calculator::calculate(_property, _costType);
+	updatePersonalBest();
+}
+
+void
+Particle::updatePersonalBest() {
+	if(_cost < _personalBestValue) {
+		_personalBestValue = _cost;
+		PropertySetter::copyTo(_property, _personalBestProperty);
+	}
+}
+
+
+
+
+

@@ -32,6 +32,7 @@ int main() {
 	population.print();
 
 
+	std::cout << "Starting the optimiser" << std::endl;
 	Optimiser optimiser(population, hyperParameters);
 
 	std::cout << "\n\nEnd of program" << std::endl;
