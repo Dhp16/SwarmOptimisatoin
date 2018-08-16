@@ -49,7 +49,20 @@ Particle::getVelocity() const {
 }
 
 void
+Particle::getVelocity(Velocity& velocity) const {
+	velocity = _vel;
+}
+
+void
 Particle::updateLocation(const double velocity) {
+	_velocity = velocity;
+	_property->update(_velocity);
+	updatePersonalData();
+}
+
+void
+Particle::updateLocation(const Velocity& velocity) {
+	_vel = velocity;
 	_property->update(velocity);
 	updatePersonalData();
 }

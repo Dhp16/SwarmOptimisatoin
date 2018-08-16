@@ -10,13 +10,14 @@
 
 #include <numeric>
 #include <memory>
+#include <fstream>
 
 #include "Particle.h"
 
 #include "AbstractCost.h"
 #include "AbstractProperties.h"
 #include "OptimisationParameters.h"
-
+#include "Velocity.h"
 
 class Population {
 
@@ -33,13 +34,18 @@ public:
 	}
 	void print() const;
 	double getGlobalBest() const;
+	void getGlobalBest(std::vector<double>& globalBest) const;
 	void update();
+
+	void printToFile(std::ofstream& file) const;
 
 private:
 	void generateParticleProperties(const int propertyType);
 	void updateGlobalBest() const;
 	double calculateVelocity(const int index,
-			const OptimisationParameters ops);
+			const OptimisationParameters& ops);
+	Velocity calculateVelocity(const int i,
+			const OptimisationParameters& ops, int k);
 
 private:
 	Particle* _particles = nullptr;

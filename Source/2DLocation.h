@@ -29,11 +29,19 @@ public:
 	virtual double get() const override {
 		return _x;
 	}
+	virtual void get(std::vector<double>& values) const {
+		values[0] = _x;
+		values[1] = _y;
+	}
 	virtual void set(const double input) {
 		_x = input;
 	}
 	virtual void update(const double velocity) override {
 		_x+=velocity;
+	}
+	virtual void update(const Velocity& velocity) override {
+		_x+=velocity[0];
+		_y+=velocity[1];
 	}
 
 	virtual void print() const override {

@@ -11,6 +11,7 @@
 #include <iostream>
 
 #include "AbstractProperties.h"
+#include "Velocity.h"
 
 #include "tools.h"
 
@@ -28,7 +29,9 @@ public:
 	virtual double get() const override {
 		return _x;
 	}
-
+	virtual void get(std::vector<double>& values) const {
+		values[0] = _x;
+	}
 	virtual void set(const double input) override {
 		_x = input;
 	}
@@ -39,6 +42,12 @@ public:
 
 	virtual void update(const double velocity) override {
 		_x += velocity;
+	}
+
+	virtual void update(
+			const Velocity& velocity)
+	override {
+		_x += velocity[0];
 	}
 
 private:

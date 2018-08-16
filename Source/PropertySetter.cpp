@@ -20,7 +20,7 @@ std::shared_ptr<AbstractProperties> PropertySetter::set(const PropertyType prope
 		property.reset(new OneDLocation());
 		return property;
 	case PropertyType::TWOD:
-		property.reset(new TwoDLocation()); //std::make_shared<AbstractProperties>(TwoDLocation());
+		property.reset(new TwoDLocation());
 		return property;
 	default:
 		std::cout << "Property type UNDEFINED" << std::endl;

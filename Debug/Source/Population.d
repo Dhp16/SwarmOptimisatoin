@@ -1,5 +1,5 @@
 Source/Population.o: ../Source/Population.cpp ../Source/Population.h \
- ../Source/Particle.h ../Source/AbstractProperties.h \
+ ../Source/Particle.h ../Source/AbstractProperties.h ../Source/Velocity.h \
  ../Source/AbstractCost.h ../Source/OptimisationParameters.h \
  ../Source/tools.h ../Source/PropertySetter.h
 
@@ -8,6 +8,8 @@ Source/Population.o: ../Source/Population.cpp ../Source/Population.h \
 ../Source/Particle.h:
 
 ../Source/AbstractProperties.h:
+
+../Source/Velocity.h:
 
 ../Source/AbstractCost.h:
 

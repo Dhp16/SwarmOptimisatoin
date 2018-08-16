@@ -13,6 +13,7 @@
 
 #include "AbstractProperties.h"
 #include "AbstractCost.h"
+#include "Velocity.h"
 
 class Particle {
 
@@ -27,7 +28,9 @@ public:
 	std::shared_ptr<AbstractProperties> getHistorialBestProperty() const;
 	double getCost() const;
 	void updateLocation(const double velocity);
+	void updateLocation(const Velocity& velocity);
 	double getVelocity() const;
+	void getVelocity(Velocity& velocity) const;
 	void set(std::shared_ptr<AbstractProperties> property);
 
 private:
@@ -38,6 +41,7 @@ private:
 private:
 	int _nVar = 0;
 	double _velocity = 0.0;
+	Velocity _vel = Velocity();
 
 	std::shared_ptr<AbstractProperties> _property = nullptr;
 	double _personalBestValue = 0.0;

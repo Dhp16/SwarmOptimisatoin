@@ -10,6 +10,8 @@
 
 #include <memory>
 
+#include "Velocity.h"
+
 enum class PropertyType {UNDEFINED, ONED, TWOD};
 
 class AbstractProperties {
@@ -18,7 +20,9 @@ public:
 		~AbstractProperties();
 		virtual void print() const = 0;
 		virtual double get() const = 0;
+		virtual void get(std::vector<double>& values) const = 0;
 		virtual void update(const double velocity) = 0;
+		virtual void update(const Velocity& velocity) = 0;
 		virtual void set(const double position) = 0;
 private:
 

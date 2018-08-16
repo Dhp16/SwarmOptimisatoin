@@ -24,13 +24,11 @@ int main() {
 
 	// PSO parameters
 	HyperParameters hyperParameters;
-	hyperParameters._nMaxIterations = 30;
+	hyperParameters._nMaxIterations = 5;
 
 	// Initialisation
-	int swarmSize = 20;
+	int swarmSize = 400;
 	Population population(swarmSize, propertyType);
-	population.print();
-
 
 	std::cout << "Starting the optimiser" << std::endl;
 	Optimiser optimiser(population, hyperParameters);
